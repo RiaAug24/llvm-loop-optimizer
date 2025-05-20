@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/24riy/llvm-loop-optimizer/build",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -DLoopUnrollPass_EXPORTS -D_FILE_OFFSET_BITS=\"64 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS\" -g -std=gnu++17 -o CMakeFiles\\LoopUnrollPass.dir\\LoopUnroll.cpp.obj -c C:\\Users\\24riy\\llvm-loop-optimizer\\LoopUnroll.cpp",
+  "file": "C:\\Users\\24riy\\llvm-loop-optimizer\\LoopUnroll.cpp",
+  "output": "CMakeFiles\\LoopUnrollPass.dir\\LoopUnroll.cpp.obj"
+}
+]

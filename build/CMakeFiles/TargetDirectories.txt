@@ -1,0 +1,10 @@
+C:/Users/24riy/llvm-loop-optimizer/build/CMakeFiles/intrinsics_gen.dir
+C:/Users/24riy/llvm-loop-optimizer/build/CMakeFiles/vt_gen.dir
+C:/Users/24riy/llvm-loop-optimizer/build/CMakeFiles/omp_gen.dir
+C:/Users/24riy/llvm-loop-optimizer/build/CMakeFiles/acc_gen.dir
+C:/Users/24riy/llvm-loop-optimizer/build/CMakeFiles/ARMTargetParserTableGen.dir
+C:/Users/24riy/llvm-loop-optimizer/build/CMakeFiles/AArch64TargetParserTableGen.dir
+C:/Users/24riy/llvm-loop-optimizer/build/CMakeFiles/RISCVTargetParserTableGen.dir
+C:/Users/24riy/llvm-loop-optimizer/build/CMakeFiles/LoopUnrollPass.dir
+C:/Users/24riy/llvm-loop-optimizer/build/CMakeFiles/edit_cache.dir
+C:/Users/24riy/llvm-loop-optimizer/build/CMakeFiles/rebuild_cache.dir
