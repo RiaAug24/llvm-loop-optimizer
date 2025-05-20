@@ -169,5 +169,5 @@ This project is open-source under the [MIT License](LICENSE).
 
 ## 👨‍💻 Author
 
-**Your Name**  
-[GitHub](https://github.com/yourusername)
+**Riyaz Ahmed**  
+[GitHub](https://github.com/RiaAug24)
