@@ -160,14 +160,3 @@ extern "C" ::llvm::PassPluginLibraryInfo llvmGetPassPluginInfo() {
 - [Loop Unrolling - LLVM Analysis](https://llvm.org/docs/LoopUnroll.html)
 
 ---
-
-## 📃 License
-
-This project is open-source under the [MIT License](LICENSE).
-
----
-
-## 👨‍💻 Author
-
-**Riyaz Ahmed**  
-[GitHub](https://github.com/RiaAug24)
