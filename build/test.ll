@@ -3,8 +3,8 @@ source_filename = "../test/test.cpp"
 target datalayout = "e-m:w-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-w64-windows-gnu"
 
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define dso_local void @_Z12loop_examplev() #0 {
+; Function Attrs: mustprogress noinline nounwind uwtable
+define dso_local ptr @_Z12loop_examplev() #0 {
   %1 = alloca [5 x i32], align 16
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
@@ -34,19 +34,19 @@ define dso_local void @_Z12loop_examplev() #0 {
   br label %3, !llvm.loop !5
 
 18:                                               ; preds = %3
-  ret void
+  ret ptr %1
 }
 
-; Function Attrs: mustprogress noinline norecurse nounwind optnone uwtable
+; Function Attrs: mustprogress noinline nounwind uwtable
 define dso_local noundef i32 @main() #1 {
   %1 = alloca i32, align 4
-  store i32 0, ptr %1, align 4
-  call void @_Z12loop_examplev()
-  ret i32 0
+  %2 = call ptr @_Z12loop_examplev()
+  %3 = load i32, ptr %2, align 4
+  ret i32 %3
 }
 
-attributes #0 = { mustprogress noinline nounwind optnone uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress noinline norecurse nounwind optnone uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 !llvm.ident = !{!4}
@@ -58,3 +58,5 @@ attributes #1 = { mustprogress noinline norecurse nounwind optnone uwtable "min-
 !4 = !{!"clang version 20.1.5"}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
+!7 = !{!"llvm.loop.vectorize.width", i32 4}
+!8 = !{!"llvm.loop.unroll.count", i32 4}
