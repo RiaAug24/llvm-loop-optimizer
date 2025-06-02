@@ -1,7 +1,7 @@
 
 # LLVM Loop Unroll Optimization Pass
 
-## 🛠️ Overview
+## Overview
 
 This project demonstrates how to build and use a custom **LLVM optimization pass** to perform **loop unrolling** on LLVM Intermediate Representation (IR). The custom pass is implemented as a shared library plugin and can be loaded using the `opt` tool from LLVM.
 
@@ -9,7 +9,7 @@ Loop unrolling is a classic compiler optimization that reduces loop overhead and
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 llvm-loop-optimizer/
@@ -25,7 +25,7 @@ llvm-loop-optimizer/
 
 ---
 
-## ⚙️ Requirements
+##  Requirements
 
 - LLVM (version 12 or newer recommended)
 - CMake
@@ -35,7 +35,7 @@ llvm-loop-optimizer/
 
 ---
 
-## 🧰 Building the Plugin
+## Building the Plugin
 
 1. **Clone this repository**:
 
@@ -66,7 +66,7 @@ After successful build, the plugin shared library (`libLoopUnrollPass.dll` on Wi
 
 ---
 
-## 🧪 Running the Optimization
+## Running the Optimization
 
 ### Step 1: Compile the Test File to LLVM IR
 
@@ -93,7 +93,7 @@ opt -load-pass-plugin ./libLoopUnrollPass.dll -passes=loop-unroll -S test.ll -o 
 
 ---
 
-## 🧾 Expected Output
+## Expected Output
 
 - **Before**: `test.ll` contains loop structures, `br` instructions, and PHI nodes.
 - **After**: `optimized.ll` should contain **duplicated loop bodies**, **fewer branches**, and possibly **flattened control flow**.
@@ -102,7 +102,7 @@ If `optimized.ll` is unreadable (binary), you may have missed the `-S` flag. Add
 
 ---
 
-## 🔍 Sample Input (test.cpp)
+## Sample Input (test.cpp)
 
 ```cpp
 void loop_example() {
@@ -113,47 +113,7 @@ void loop_example() {
 }
 ```
 
----
-
-## 🧠 Tips for Effective Optimization
-
-- Prefer loops with **constant bounds**.
-- Use `#pragma clang loop unroll(full)` for aggressive unrolling.
-- Use `-O1` or `-O2` while compiling for cleaner IR.
-- Avoid complex loops or nested control flows while testing your plugin initially.
-
----
-
-## 🐛 Troubleshooting
-
-### Problem: `Plugin entry point not found`
-
-**Cause**: Plugin is missing the correct registration mechanism (like `PassPluginLibraryInfo`).
-
-**Fix**: Make sure your `LoopUnrollPass.cpp` includes:
-
-```cpp
-extern "C" ::llvm::PassPluginLibraryInfo llvmGetPassPluginInfo() {
-    return {
-        LLVM_PLUGIN_API_VERSION, "LoopUnrollPass", "v0.1",
-        [](PassBuilder &PB) {
-            PB.registerPipelineParsingCallback(
-                [](StringRef Name, FunctionPassManager &FPM,
-                   ArrayRef<PassBuilder::PipelineElement>) {
-                    if (Name == "loop-unroll") {
-                        FPM.addPass(LoopUnrollPass());
-                        return true;
-                    }
-                    return false;
-                });
-        }
-    };
-}
-```
-
----
-
-## 📚 References
+## References
 
 - [LLVM Passes Documentation](https://llvm.org/docs/WritingAnLLVMPass.html)
 - [Writing New Passes in LLVM (official)](https://llvm.org/docs/NewPassManager.html)
